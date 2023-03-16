@@ -103,6 +103,9 @@ Se busca un nodo con gpu disponible de la siguiente lista:
 
 `sycl-ls`
 
+![This is an image](/Desarrollo/Imagen5.png)
+Descripcion: Se observa que el id del nodo es 2254276.v-qsvr-1.aidevcloud, con el usuario u185963 (con el cual se conecto). Además me indica la fecha y hora en que se ha realizado la conexión: Jueves 16 de marzo del 2023 a las 12:56:05 PM PDT. El plazo máximo de uso es por 6 horas según el parámetro walltime.
+
 Para compilar se realiza los siguientes procedimientos
 
 `mkdir build`
@@ -116,6 +119,8 @@ Para compilar se realiza los siguientes procedimientos
 -El siguiente comando ejecuta al algoritmo:
 
 `make run`
+
+![This is an image](/Desarrollo/Imagen6.png)
 
 
 ## 4.	Realizar un análisis de GPU Hotspots con VTune [8 puntos]
