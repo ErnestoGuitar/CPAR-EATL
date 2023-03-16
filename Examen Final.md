@@ -1,6 +1,8 @@
 # Examen Final
 ## 0.	Clonar el repositorio oneAPI-samples [1 punto]
 En la pagina se copie el enlace
+
+![This is an image](https://myoctocat.com/assets/images/base-octocat.svg)
  
 Enlace:
 https://github.com/oneapi-src/oneAPI-samples.git
