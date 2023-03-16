@@ -8,19 +8,21 @@ Enlace:
 https://github.com/oneapi-src/oneAPI-samples.git
 
 Luego en mobaXterm, se ejecuta los siguientes códigos
- 
 
--Crear una carpeta de trabajo:
+![This is an image](/Desarrollo/Imagen2.png)
 
-"mkdir Examen_Final".
-´´mkdir Examen_Final´´
-Este es un ejemplo de "código en línea".
+-Crear una carpeta de trabajo: 
 
-Entramos a la carpeta creada:
-cd Examen_Final/
-Clonamos el repositorio:
-git clone https://github.com/oneapi-src/oneAPI-samples.git
+`mkdir Examen_Final`
+
+-Entramos a la carpeta creada:
+
+`cd Examen_Final/`
+
+-Clonamos el repositorio:
+
+`git clone https://github.com/oneapi-src/oneAPI-samples.git`
 
 Resultado:
  
-
+![This is an image](/Desarrollo/Imagen3.png)
