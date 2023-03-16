@@ -1,6 +1,6 @@
 # Examen Final
 ## 0.	Clonar el repositorio oneAPI-samples [1 punto]
-En la pagina se copie el enlace
+En la pagina https://github.com/oneapi-src/oneAPI-samples se copia el enlace
 
 ![This is an image](/Desarrollo/Imagen1.png)
 
@@ -78,3 +78,53 @@ Resultado:
 ## 2.	Explicar brevemente el algoritmo de Nbody [3 puntos]
 
 Nbody es un algoritmo de simulación de un sistema dinámico de partículas bajo la influencia de fuerzas físicas como la gravedad. El código de ejemplo del algoritmo Nbody simula 16 000 partículas en diez pasos de integración. Cada partícula posee sus parámetros de posición, velocidad y aceleración, el cual dependen de otras (N-1) partículas. La dinámica de las partículas se ejecuta en paralelo, por lo que el algoritmo se debe ejecutar en la GPU.
+
+## 3.	Acceder en modo interactivo a un nodo de cómputo con GPUs (gen9 o gen11) [3 puntos]
+
+- Compilar y ejecutar Nbody
+- Proporcionar screenshot(s) de los resultados
+- Por cada screenshot, añadir una breve descripción
+
+Se busca un nodo con gpu disponible de la siguiente lista:
+
+- nodes=1:gpu:ppn=2
+- nodes=1:gen9:ppn=2
+- nodes=1:gen11:ppn=2
+- nodes=1:iris_xe_max:ppn=2
+- nodes=1:iris_xe_max:dual_gpu:ppn=2
+- nodes=1:iris_xe_max:quad_gpu:ppn=2
+- nodes=1:iris_xe_max:ppn=2
+
+-Se selecciona un nodo de la lista:
+
+`qsub -I -l nodes=1:gen9:ppn=2 -d .`
+
+-Ejecutamos el siguiente comando para observar los recursos disponibles:
+
+`sycl-ls`
+
+Para compilar se realiza los siguientes procedimientos
+
+`mkdir build`
+
+`cd build`
+
+`cmake ..`
+
+`make`
+
+-El siguiente comando ejecuta al algoritmo:
+
+`make run`
+
+
+## 4.	Realizar un análisis de GPU Hotspots con VTune [8 puntos]
+- Indicar los hotspots del programa
+- Proporcionar screenshot(s) de los resultados
+- Por cada screenshot, añadir una breve descripción
+
+## 5.	Realizar un análisis Roofline con Advisor [4 puntos]
+- Indicar los hotspots del programa
+- Proporcionar screenshot(s) de los resultados
+- Por cada screenshot, añadir una breve descripción
+-	Indicar potenciales soluciones para optimizar la ejecución del programa
