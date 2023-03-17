@@ -1,0 +1,64 @@
+threads_spec: cpu
+Using CPUID GenuineIntel-6-9E-A
+DEBUGINFOD_URLS=
+Compression enabled, disabling build id collection at the end of the session.
+nr_threads: 12
+thread_masks[0]: 0x55f257c0c2c0: maps mask[12]: 0
+thread_masks[0]: 0x55f257c0c2d0: affinity mask[12]: 0
+thread_masks[1]: 0x55f257c0c2e0: maps mask[12]: 1
+thread_masks[1]: 0x55f257c0c2f0: affinity mask[12]: 1
+thread_masks[2]: 0x55f257c0c300: maps mask[12]: 2
+thread_masks[2]: 0x55f257c0c310: affinity mask[12]: 2
+thread_masks[3]: 0x55f257c0c320: maps mask[12]: 3
+thread_masks[3]: 0x55f257c0c330: affinity mask[12]: 3
+thread_masks[4]: 0x55f257c0c340: maps mask[12]: 4
+thread_masks[4]: 0x55f257c0c350: affinity mask[12]: 4
+thread_masks[5]: 0x55f257c0c360: maps mask[12]: 5
+thread_masks[5]: 0x55f257c0c370: affinity mask[12]: 5
+thread_masks[6]: 0x55f257c0c380: maps mask[12]: 6
+thread_masks[6]: 0x55f257c0c390: affinity mask[12]: 6
+thread_masks[7]: 0x55f257c0c3a0: maps mask[12]: 7
+thread_masks[7]: 0x55f257c0c3b0: affinity mask[12]: 7
+thread_masks[8]: 0x55f257c0c3c0: maps mask[12]: 8
+thread_masks[8]: 0x55f257c0c3d0: affinity mask[12]: 8
+thread_masks[9]: 0x55f257c0c3e0: maps mask[12]: 9
+thread_masks[9]: 0x55f257c0c3f0: affinity mask[12]: 9
+thread_masks[10]: 0x55f257c0c400: maps mask[12]: 10
+thread_masks[10]: 0x55f257c0c410: affinity mask[12]: 10
+thread_masks[11]: 0x55f257c0c420: maps mask[12]: 11
+thread_masks[11]: 0x55f257c0c430: affinity mask[12]: 11
+nr_cblocks: 0
+affinity: SYS
+mmap flush: 1
+comp level: 1
+mmap size 528384B
+threads[2266090]: started on cpu1
+threads[2266091]: started on cpu2
+threads[2266092]: started on cpu3
+threads[2266093]: started on cpu4
+threads[2266094]: started on cpu5
+threads[2266095]: started on cpu6
+threads[2266096]: started on cpu7
+threads[2266097]: started on cpu8
+threads[2266098]: started on cpu9
+threads[2266099]: started on cpu10
+threads[2266100]: started on cpu11
+threads[2266088]: started on cpu0
+
+2266089:perf-sync:ready:TSC=2011966090304564
+[ perf record: Woken up 1 times to write data ]
+threads[2266088]: samples=1, wakes=1, transferred=7984, compressed=1918
+threads[2266090]: samples=1, wakes=2, transferred=8448, compressed=1865
+threads[2266091]: samples=2, wakes=2, transferred=200008, compressed=36770
+threads[2266092]: samples=1, wakes=2, transferred=7056, compressed=1584
+threads[2266093]: samples=1, wakes=2, transferred=164584, compressed=23337
+threads[2266094]: samples=1, wakes=2, transferred=9752, compressed=1678
+threads[2266095]: samples=1, wakes=2, transferred=2464, compressed=658
+threads[2266096]: samples=1, wakes=2, transferred=3216, compressed=818
+threads[2266097]: samples=1, wakes=2, transferred=5952, compressed=1247
+threads[2266098]: samples=1, wakes=2, transferred=3712, compressed=1134
+threads[2266099]: samples=1, wakes=2, transferred=42144, compressed=5355
+threads[2266100]: samples=1, wakes=2, transferred=13520, compressed=2853
+failed to write feature HYBRID_TOPOLOGY
+failed to write feature HYBRID_CPU_PMU_CAPS
+[ perf record: Captured and wrote 0.143 MB /home/u185963/r000gh/data.0/system-wide.perf, compressed (original 0.447 MB, ratio is 5.918) ]
