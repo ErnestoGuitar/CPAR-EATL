@@ -79,6 +79,8 @@ Resultado:
 
 Nbody es un algoritmo de simulación de un sistema dinámico de partículas bajo la influencia de fuerzas físicas como la gravedad. El código de ejemplo del algoritmo Nbody simula 16 000 partículas en diez pasos de integración. Cada partícula posee sus parámetros de posición, velocidad y aceleración, el cual dependen de otras (N-1) partículas. La dinámica de las partículas se ejecuta en paralelo, por lo que el algoritmo se debe ejecutar en la GPU.
 
+1. Se inicializa los valores de posición, velocidad, aceleración y peso
+2. Luego
 ## 3.	Acceder en modo interactivo a un nodo de cómputo con GPUs (gen9 o gen11) [3 puntos]
 
 - Compilar y ejecutar Nbody
