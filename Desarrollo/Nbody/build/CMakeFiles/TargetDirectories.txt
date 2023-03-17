@@ -1,0 +1,6 @@
+/home/u185963/Examen_Final/oneAPI-samples/DirectProgramming/C++SYCL/N-BodyMethods/Nbody/build/CMakeFiles/rebuild_cache.dir
+/home/u185963/Examen_Final/oneAPI-samples/DirectProgramming/C++SYCL/N-BodyMethods/Nbody/build/CMakeFiles/edit_cache.dir
+/home/u185963/Examen_Final/oneAPI-samples/DirectProgramming/C++SYCL/N-BodyMethods/Nbody/build/src/CMakeFiles/edit_cache.dir
+/home/u185963/Examen_Final/oneAPI-samples/DirectProgramming/C++SYCL/N-BodyMethods/Nbody/build/src/CMakeFiles/run.dir
+/home/u185963/Examen_Final/oneAPI-samples/DirectProgramming/C++SYCL/N-BodyMethods/Nbody/build/src/CMakeFiles/rebuild_cache.dir
+/home/u185963/Examen_Final/oneAPI-samples/DirectProgramming/C++SYCL/N-BodyMethods/Nbody/build/src/CMakeFiles/nbody.dir
