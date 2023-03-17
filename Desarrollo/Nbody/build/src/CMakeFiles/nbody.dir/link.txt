@@ -1,0 +1,1 @@
+/glob/development-tools/versions/oneapi/2023.0.1/oneapi/compiler/2023.0.0/linux/bin/icpx   -O2 -fsycl -O2 -g -DNDEBUG   CMakeFiles/nbody.dir/GSimulation.cpp.o CMakeFiles/nbody.dir/main.cpp.o  -o nbody  -lOpenCL -lsycl 
