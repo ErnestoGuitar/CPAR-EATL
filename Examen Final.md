@@ -128,10 +128,122 @@ Para compilar se realiza los siguientes procedimientos
 ## 4.	Realizar un análisis de GPU Hotspots con VTune [8 puntos]
 - Indicar los hotspots del programa
 - Proporcionar screenshot(s) de los resultados
-- Por cada screenshot, añadir una breve descripción
+  - Por cada screenshot, añadir una breve descripción
+
+Primero se ejecuta los siguientes comandos para elegir un nodo y revizar si posee gpu:
+
+`ssh devcloud`
+
+`qsub -I -l nodes=1:gen9:ppn=2 -d .`
+
+`sycl-ls`
+
+Luego se busca el archivo binario para realizar el análisis:
+
+`cd /home/u185963/Examen_Final/oneAPI-samples/DirectProgramming/C++SYCL/N-BodyMethods/Nbody/build/src`
+
+`ls`
+
+Se realiza el análisis GPU Hostpots con el VTune:
+
+`vtune -collect gpu-hotspots -- /home/u185963/Examen_Final/oneAPI-samples/DirectProgramming/C++SYCL/N-BodyMethods/Nbody/build/src/nbody`
+
+En otra ventana del MobaXterm se descarga los resultados:
+
+`scp -r devcloud:/home/u185963/Examen_Final/oneAPI-samples/DirectProgramming/C++SYCL/N-BodyMethods/Nbody/build/src/nbody/r000gh .`
+
+Los hostpots con GPU del programa es el siguiente:
+
+GSimulation::Start(void)::{lambda(sycl::_V1::hander&)#1} 
+
+Se presenta los siguientes screenshots que muestran los resultados:
+
+![This is an image](/Desarrollo/Imagen7.png)
+
+Descripción: El tiempo transcurrido del análisis es 1.891 segundo, de ese tiempo 0.354 segundos se utilizaron el GPU. El límite de ancho de banda GPU L3 es el 16,6% del valor pico. El muestreador ocupado es del 0.0% del valor pico. La utilización del procesador de punto flotante (FPU) es de 33.5% del tiempo transcurrido con GPU ocupado.
+
+![This is an image](/Desarrollo/Imagen8.png)
+
+Descripción: Se presenta un histograma de utilización del ancho de banda indicando el ancho de banda de la memoria del GPU
+
+![This is an image](/Desarrollo/Imagen9.png)
+
+Descripción: Información de los dispositivos utilizados en la ejecución. Además, se detalla del tiempo y peso en MB de la ejecución del programa
+
+![This is an image](/Desarrollo/Imagen10.png)
+
+Descripción: En el hotspot seleccionado, se utiliza el GPU para la ejecución. La unidad de ejecución especialmente de punto flotante (FPU) se utiliza el 90,6%.
 
 ## 5.	Realizar un análisis Roofline con Advisor [4 puntos]
 - Indicar los hotspots del programa
 - Proporcionar screenshot(s) de los resultados
-- Por cada screenshot, añadir una breve descripción
+  - Por cada screenshot, añadir una breve descripción
 -	Indicar potenciales soluciones para optimizar la ejecución del programa
+
+Primero se ejecuta los siguientes comandos para elegir un nodo y revizar si posee gpu:
+
+`ssh devcloud`
+
+`qsub -I -l nodes=1:gen9:ppn=2 -d .`
+
+`sycl-ls`
+
+Luego se busca el archivo binario para realizar el análisis:
+
+`cd /home/u185963/Examen_Final/oneAPI-samples/DirectProgramming/C++SYCL/N-BodyMethods/Nbody/build/src`
+
+`ls`
+
+Se realiza el análisis Roofline con el Advisor:
+
+`advisor --collect=roofline --project-dir=./advi_results -- /home/u185963/Examen_Final/oneAPI-samples/DirectProgramming/C++SYCL/N-BodyMethods/Nbody/build/src/nbody`
+
+En otra ventana del MobaXterm se descarga los resultados:
+
+`scp -r devcloud:/home/u185963/Examen_Final/oneAPI-samples/DirectProgramming/C++SYCL/N-BodyMethods/Nbody/build/src/advi_results .`
+
+![This is an image](/Desarrollo/Imagen11.png)
+
+Descripción: También se descarga los siguientes archivos ya que en análisis se necesita, además del archivo binario:
+
+El archivo GSimulation.cpp:
+
+`scp -r devcloud:/home/u185963/Examen_Final/oneAPI-samples/DirectProgramming/C++SYCL/N-BodyMethods/Nbody/src/GSimulation.cpp .`
+
+El archivo main.cpp:
+
+`scp -r devcloud:/home/u185963/Examen_Final/oneAPI-samples/DirectProgramming/C++SYCL/N-BodyMethods/Nbody/src/main.cpp .`
+
+El archivo nbody:
+
+`scp -r devcloud:/home/u185963/Examen_Final/oneAPI-samples/DirectProgramming/C++SYCL/N-BodyMethods/Nbody/build/src/nbody .`
+
+![This is an image](/Desarrollo/Imagen12.png)
+
+Descripción: Los archivos se copia en la carpeta advi_results para que el advisor lo utilice en el analisis
+
+![This is an image](/Desarrollo/Imagen13.png)
+
+Descripción: se muestra las métricas obtenidas desde el cpu. Sus métricas principales son los siguientes: CPU Time con 1.65 segundos, Time in 1 Vectorized Loop con 0.06 s y el Time in sacalar code 1.59s 
+
+![This is an image](/Desarrollo/Imagen14.png)
+
+Descripción: Se muestra el análisis roofline, el cual se presenta los límites de memoria y de hardware. En la grafíca se observa un punto de intersección, el cual ayuda a determinar la forma que se debe mejorar. La eficiencia dependerá del área donde se encuentre las secciones del algoritmo. Si el punto se encuentra a la derecha se necesita hacer más operaciones. Y si se encuentra a la izquierda se debe retener datos como de la memoria cache.
+
+![This is an image](/Desarrollo/Imagen15.png)
+
+Descripción: se encuentra un punto verde, el cual es una sección poco usada con un tiempo de ejecución de 0.012 s
+
+![This is an image](/Desarrollo/Imagen16.png)
+
+Descripción: se encuentra un punto verde, el cual es una sección poco usada con un tiempo de ejecución de 0.008 s
+
+Conclusión: En el gráfico no presenta alguna sección potencial que se pueda mejorar ya que no posee puntos rojos.
+
+![This is an image](/Desarrollo/Imagen17.png)
+
+Descripción: El hotspot en el programa es la línea 86, en la función void GSimulation::Start(), este le toma 1.650 segundos
+
+![This is an image](/Desarrollo/Imagen18.png)
+
+Descripción: En el main.cpp, se toma 1.65 segundos para ejecutar la función main. Cabe resaltar que esta función su tiempo esta definida por la función anteriormente mencionada.
